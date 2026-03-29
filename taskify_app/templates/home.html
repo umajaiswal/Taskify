@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Taskify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #111827;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .navbar h2 {
+            color: #38bdf8;
+        }
+
+        .nav-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* Content */
+        .container {
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            width: 350px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #111827;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #38bdf8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>Taskify</h2>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/dashboard/">Dashboard</a>
+
+            {% if user.is_authenticated %}
+                <a href="/logout/">Logout</a>
+            {% else %}
+                <a href="/login/">Login</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+        <div class="box">
+            <h1>Welcome {{ user.username|default:"Guest" }} 👋</h1>
+            <p>Manage your tasks easily</p>
+
+            <a href="/dashboard/" class="btn">Go to Dashboard</a>
+        </div>
+    </div>
+
+</body>
+</html>
