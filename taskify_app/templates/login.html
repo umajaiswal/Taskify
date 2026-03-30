@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Beautiful Login Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-box {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .input-box label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-box input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 5px #667eea;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            background: #667eea;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #5a67d8;
+        }
+
+        .extra {
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .extra a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .extra a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        {% if error %}
+        <div>{{error}}</div>
+        {% endif %}
+        
+        <form method= "POST">
+            {% csrf_token %}
+            <div class="input-box">
+                <label>user_name</label>
+                <input name="user_name" type="text" placeholder="Enter username" required>
+            </div>
+
+            <div class="input-box">
+                <label>user_password</label>
+                <input name="user_password" type="password" placeholder="Enter password" required>
+            </div>
+
+            <button class="login-btn" type="submit">Login</button>
+        </form>
+
+        <div class="extra">
+            <p>Forgot password? <a href="#">Click here</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

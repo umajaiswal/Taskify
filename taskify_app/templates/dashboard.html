@@ -38,13 +38,14 @@
             list-style: none;
         }
 
-        .sidebar ul li {
-            margin: 15px 0;
-            cursor: pointer;
+       .sidebar ul li a {
+        text-decoration: none;   /* underline remove */
+        color: white;            /* apna color set karo */
+        display: block;          /* pura clickable banane ke liye */
         }
 
-        .sidebar ul li:hover {
-            color: #38bdf8;
+        .sidebar ul li a:hover {
+        color: #00c3ff;          /* hover effect (optional) */
         }
 
         /* Main */
@@ -118,6 +119,7 @@
             <li>📋 Tasks</li>
             <li>📊 Reports</li>
             <li>⚙️ Settings</li>
+            <li> <a href = "{% url 'logout' %}" > 🚶🏻‍♂️Logout </a></li>
         </ul>
     </div>
 
@@ -127,7 +129,8 @@
         <!-- Header -->
         <div class="header">
             <h1>Dashboard</h1>
-            <p>Welcome, Munna 👋</p>
+            <p>Welcome, {{user.username}} 👋</p>
+            <h1>{{user.email}}</h1>
         </div>
 
         <!-- Cards -->
