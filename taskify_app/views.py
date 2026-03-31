@@ -1,6 +1,7 @@
 from django.shortcuts import render , redirect
 from django.contrib.auth import authenticate , login , logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 def home(request):
     return render(request,'home.html')
@@ -32,5 +33,16 @@ def user_logout(request):
     logout(request) 
     return redirect('home')
 
+def register(request):
+    if request.method=='POST':
+        user_name = request.POST.get('user_name')
+        email = request.POST.get('email')
+        user_password = request.POST.get('user_password')
 
-
+        if User.objects.filter(username=user_name ,email=email).exists():
+            return render(request,'registration.html',{'error':'already exist user or email'})
+        
+        user = User.objects.create_user(
+            username=user_name ,email=email,password=user_password)
+        return redirect ('login')
+    return render (request,'register.html')
