@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in - Taskify</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="center-page">
+    <div class="auth-card">
+      <a class="brand" href="index.html">Taskify</a>
+      <h2>Log in</h2>
+      <form id="login-form" novalidate>
+        <label for="username">Username</label>
+        <input id="username" type="text" autocomplete="username">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password">
+        <div id="message" class="message hidden" role="alert"></div>
+        <button id="submit-btn" class="btn btn-primary" type="submit">Log in</button>
+      </form>
+      <p class="switch-text">New here? <a href="register.html">Create an account</a></p>
+    </div>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

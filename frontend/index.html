@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taskify</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="center-page">
+    <section class="hero">
+      <span class="brand">Taskify</span>
+      <h1>Keep every task in one place</h1>
+      <p>Add tasks, edit them, tick them off when they're done.</p>
+      <a class="btn btn-primary" href="login.html">Log in</a>
+      <a class="btn btn-secondary" href="register.html">Create account</a>
+    </section>
+  </main>
+  <script src="js/api.js"></script>
+  <script>
+    // Already logged in? Skip the landing page.
+    if (getToken()) window.location.href = "dashboard.html";
+  </script>
+</body>
+</html>
